@@ -51,14 +51,14 @@ public class Time implements Times {
         if(jogadores.containsKey(cpf)){
             jogadores.remove(cpf);
            return true;
-        }else{
+        }else{;
             return false;
         }
     }
-    public Collection<Jogador> pesquisaJogadores(String nome,int cpf){
+    public Collection<Jogador> pesquisaJogadores(int cpf){
         Collection<Jogador> jogadoresAchados = new ArrayList<>();
         for(Jogador j : this.jogadores.values()){
-            if(j.getNome() == nome && j.getCpf() == cpf){
+            if(j.getCpf() == cpf){
                 jogadoresAchados.add(j);
             }
         }return jogadoresAchados;

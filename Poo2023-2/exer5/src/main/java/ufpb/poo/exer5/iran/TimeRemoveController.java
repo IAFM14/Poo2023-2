@@ -2,8 +2,9 @@ package ufpb.poo.exer5.iran;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TimeRemoveController {
+public class TimeRemoveController implements ActionListener {
     private Time time;
     private JFrame janelaPrincipal;
 
@@ -12,14 +13,14 @@ public class TimeRemoveController {
         this.janelaPrincipal = janelaPrincipal;
 
     }
-    public void acctionPerformed(ActionEvent e){
-        int cpf = JOptionPane.showConfirmDialog(janelaPrincipal,"CPF DO JOGADOR: ");
+    public void actionPerformed(ActionEvent e){
+        int cpf = Integer.parseInt(JOptionPane.showInputDialog(janelaPrincipal,"CPF DO JOGADOR: "));
         boolean removeu = time.removerJogador(cpf);
         if(removeu){
-            JOptionPane.showInputDialog(janelaPrincipal,"JOGADOR REMOVIDO!");
+            JOptionPane.showMessageDialog(janelaPrincipal,"JOGADOR REMOVIDO!");
 
         }else{
-            JOptionPane.showInputDialog(janelaPrincipal,"NÃO FOI POSSIVEL REMOVER O JOGADOR!!\n VERIFIQUE SE ELE ESTÁ CADASTRADO!");
+            JOptionPane.showMessageDialog(janelaPrincipal,"NÃO FOI POSSIVEL REMOVER O JOGADOR!!\n VERIFIQUE SE ELE ESTÁ CADASTRADO!");
         }
     }
 

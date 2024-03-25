@@ -1,12 +1,13 @@
 package ufpb.poo.exer5.iran;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
-public class TimeSearchController {
+public class TimeSearchController implements ActionListener {
     private Time time;
     private JFrame janelaPrincipal;
 
@@ -14,19 +15,18 @@ public class TimeSearchController {
         this.time = time;
         this.janelaPrincipal = janelaPrincipal;
     }
-    public void actionPerformed(ActionListener e){
-        String nome = JOptionPane.showInputDialog(janelaPrincipal,"NOME DO JOGADOR: ");
+    public void actionPerformed(ActionEvent e){
         int cpf = Integer.parseInt(JOptionPane.showInputDialog(janelaPrincipal,"CPF DO JOGADOR: "));
-        Collection<Jogador> jogadoresAchados = time.pesquisaJogadores(nome,cpf);
+        Collection<Jogador> jogadoresAchados = time.pesquisaJogadores(cpf);
         if(jogadoresAchados.size()>0){
-            JOptionPane.showInputDialog(janelaPrincipal,"JOGADORES ENCONTRADOS: ");
+            JOptionPane.showMessageDialog(janelaPrincipal,"JOGADORES ENCONTRADOS: ");
 
             for(Jogador j : jogadoresAchados){
-                JOptionPane.showInputDialog(janelaPrincipal,j.toString());
+                JOptionPane.showMessageDialog(janelaPrincipal,j.toString());
             }
 
         }else{
-            JOptionPane.showInputDialog(janelaPrincipal,"JOGADOR NÃO ENCONTRADO!");
+            JOptionPane.showMessageDialog(janelaPrincipal,"JOGADOR NÃO ENCONTRADO!");
         }
     }
 }

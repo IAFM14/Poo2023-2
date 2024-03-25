@@ -2,8 +2,9 @@ package ufpb.poo.exer5.iran;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TimeExisteController {
+public class TimeExisteController implements ActionListener {
     private Time time;
     private JFrame janelaPrincipal;
 
@@ -15,9 +16,9 @@ public class TimeExisteController {
         int cpf = Integer.parseInt(JOptionPane.showInputDialog(janelaPrincipal,"CPF DO JOGADOR: "));
         boolean existe = time.existeJogador(cpf);
         if(existe){
-            JOptionPane.showInputDialog(janelaPrincipal,"JOGADOR EXISTE!\n"+e.toString());
+            JOptionPane.showMessageDialog(janelaPrincipal,"JOGADOR EXISTE!\n"+e.toString());
         }else{
-            JOptionPane.showInputDialog(janelaPrincipal,"JOGADOR NÃO EXISTE!!");
+            JOptionPane.showMessageDialog(janelaPrincipal,"JOGADOR NÃO EXISTE!!");
         }
     }
 }
